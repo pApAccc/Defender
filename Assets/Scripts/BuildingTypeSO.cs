@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
+/// 建筑属性类
 /// </summary>
 namespace ns
 {
@@ -12,5 +12,6 @@ namespace ns
     {
         public string nameString;
         public Transform Prefab;
+        public ResourceGenerateData resourceGenerateData;
     }
 }

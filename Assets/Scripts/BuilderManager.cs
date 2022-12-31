@@ -12,11 +12,14 @@ namespace ns
         Camera mainCamera;
         BuildingTypeSO buildingType;
         List<BuildingTypeSO> buildingTypeList;
+        private void Awake()
+        {
+            buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name).list;
+            buildingType = buildingTypeList[0];
+        }
         private void Start()
         {
             mainCamera = Camera.main;
-            buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name).list;
-            buildingType = buildingTypeList[0];
         }
         private void Update()
         {
@@ -24,7 +27,6 @@ namespace ns
             {
                 Instantiate(buildingType.Prefab, GetMousePosition(), Quaternion.identity);
             }
-
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 buildingType = buildingTypeList[0];
