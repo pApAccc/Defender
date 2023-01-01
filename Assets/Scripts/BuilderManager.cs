@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// 
@@ -9,13 +11,22 @@ namespace ns
 {
     public class BuilderManager : MonoBehaviour
     {
+        public static BuilderManager Instance { get; private set; }
         Camera mainCamera;
-        BuildingTypeSO buildingType;
+        BuildingTypeSO activeBuildingType;
         List<BuildingTypeSO> buildingTypeList;
+
+        public event EventHandler<OnActiveBuildingTypeChangedEventArgs> OnActiveBuildingTypeChanged;
+
+        public class OnActiveBuildingTypeChangedEventArgs : EventArgs
+        {
+            public BuildingTypeSO activeBuildingType;
+        }
+
         private void Awake()
         {
+            Instance = this;
             buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name).list;
-            buildingType = buildingTypeList[0];
         }
         private void Start()
         {
@@ -23,25 +34,22 @@ namespace ns
         }
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
-                Instantiate(buildingType.Prefab, GetMousePosition(), Quaternion.identity);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                buildingType = buildingTypeList[0];
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                buildingType = buildingTypeList[1];
+                if (activeBuildingType != null)
+                    Instantiate(activeBuildingType.Prefab, UtilsClass.GetMousePosition(), Quaternion.identity);
             }
         }
 
-        private Vector3 GetMousePosition()
+        public void SetActiveBuildingtype(BuildingTypeSO buildingType)
         {
-            Vector3 mouseworldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseworldPos.z = 0;
-            return mouseworldPos;
+            activeBuildingType = buildingType;
+            OnActiveBuildingTypeChanged?.Invoke(this, new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = activeBuildingType });
+        }
+
+        public BuildingTypeSO GetActiveBuildingType()
+        {
+            return activeBuildingType;
         }
     }
 }

@@ -13,5 +13,6 @@ namespace ns
         public string nameString;
         public Transform Prefab;
         public ResourceGenerateData resourceGenerateData;
+        public Sprite sprite;
     }
 }

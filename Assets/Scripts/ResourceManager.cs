@@ -27,7 +27,7 @@ namespace ns
             {
                 resourceAmountDict[res] = 0;
             }
-            Test();
+
         }
 
         void Test()
@@ -42,7 +42,6 @@ namespace ns
         {
             resourceAmountDict[resourceTypeSO] += amount;
             OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
-            Test();
         }
 
         public int GetReourceAmount(ResourceTypeSO resourceType)

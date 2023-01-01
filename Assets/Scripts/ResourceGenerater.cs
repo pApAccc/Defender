@@ -10,15 +10,45 @@ namespace ns
 {
     public class ResourceGenerater : MonoBehaviour
     {
-        BuildingTypeSO buildingType;
+        ResourceGenerateData resourceGenerateData;
         float timer;
         //过多久增加一次资源
         float timerMax;
         private void Awake()
         {
-            buildingType = GetComponent<BuildingTypeHolder>().buildingType;
-            timerMax = buildingType.resourceGenerateData.timerMax;
+            resourceGenerateData = GetComponent<BuildingTypeHolder>().buildingType.resourceGenerateData;
+            timerMax = resourceGenerateData.timerMax;
             timer = timerMax;
+        }
+
+        private void Start()
+        {
+            Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(transform.position, resourceGenerateData.resourceDetectionRadius);
+
+            float nearbyResourceAmount = 0;
+            foreach (Collider2D collider2d in collider2DArray)
+            {
+                ResourceNode resourceNode = collider2d.GetComponent<ResourceNode>();
+                if (collider2d != null)
+                    if (resourceNode.resourceType == resourceGenerateData.resourceType)
+                    {
+                        nearbyResourceAmount++;
+                    }
+            }
+
+            nearbyResourceAmount = Mathf.Clamp(nearbyResourceAmount, 0, resourceGenerateData.maxResourceAmount);
+
+            if (nearbyResourceAmount == 0)
+            {
+                enabled = false;
+            }
+            else
+            {
+                timerMax = resourceGenerateData.timerMax / 2 +
+                    resourceGenerateData.timerMax / 2 *
+                    (1 - (nearbyResourceAmount) / resourceGenerateData.maxResourceAmount);
+            }
+            print("nearyByResourceAmount" + nearbyResourceAmount);
         }
 
         private void Update()
@@ -28,7 +58,7 @@ namespace ns
             {
                 timer = timerMax;
                 //添加资源
-                ResourceManager.Instance.AddResource(buildingType.resourceGenerateData.resourceType, 1);
+                ResourceManager.Instance.AddResource(resourceGenerateData.resourceType, 1);
             }
         }
     }

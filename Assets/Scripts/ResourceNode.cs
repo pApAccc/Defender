@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +7,8 @@ using UnityEngine;
 /// </summary>
 namespace ns
 {
-    [Serializable]
-    public class ResourceGenerateData
+    public class ResourceNode : MonoBehaviour
     {
-        public float timerMax;
         public ResourceTypeSO resourceType;
-        public float resourceDetectionRadius;
-        public int maxResourceAmount;
     }
 }
