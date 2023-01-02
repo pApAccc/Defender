@@ -17,7 +17,6 @@ namespace ns
 
             Vector3 mouseworldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             mouseworldPos.z = 0;
-            Debug.Log(mouseworldPos);
             return mouseworldPos;
         }
     }

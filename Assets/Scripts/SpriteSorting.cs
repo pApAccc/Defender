@@ -10,13 +10,13 @@ namespace ns
 {
     public class SpriteSorting : MonoBehaviour
     {
-        [SerializeField] bool runOnce;
+        [SerializeField] bool runOnce = true;
         SortingGroup sortingGroup;
         SpriteRenderer spriteRender;
         private void Awake()
         {
-            if (!TryGetComponent(out sortingGroup))
-                TryGetComponent(out spriteRender);
+            sortingGroup = GetComponentInChildren<SortingGroup>();
+            spriteRender = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void LateUpdate()

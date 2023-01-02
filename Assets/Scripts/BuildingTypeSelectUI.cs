@@ -14,16 +14,17 @@ namespace ns
         Dictionary<BuildingTypeSO, Transform> btnTransformDict;
         Transform arrowBtn;
         [SerializeField] Sprite arrowSprite;
+        [SerializeField] List<BuildingTypeSO> ignoreBuildingType;
         private void Awake()
         {
+            //初始化
             btnTransformDict = new Dictionary<BuildingTypeSO, Transform>();
             Transform btnTemplate = transform.Find("btnTemplate");
             btnTemplate.gameObject.SetActive(false);
-
             BuildingTypeListSO buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
-
             int index = 0;
 
+            //创建不属于建筑的“空”鼠标按钮
             arrowBtn = Instantiate(btnTemplate, transform);
             arrowBtn.gameObject.SetActive(true);
             arrowBtn.Find("Image").GetComponent<Image>().sprite = arrowSprite;
@@ -32,7 +33,6 @@ namespace ns
             float offset = +180;
             arrowBtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset * index, 0);
 
-
             arrowBtn.GetComponent<Button>().onClick.AddListener(() =>
             {
                 BuilderManager.Instance.SetActiveBuildingtype(null);
@@ -40,8 +40,10 @@ namespace ns
 
             index++;
 
+            //根据BuildingTypeListSO创建建筑按钮
             foreach (BuildingTypeSO buildingType in buildingTypeList.list)
             {
+                if (ignoreBuildingType.Contains(buildingType)) continue;
                 Transform btnTransform = Instantiate(btnTemplate, transform);
                 btnTransform.gameObject.SetActive(true);
 
@@ -71,6 +73,9 @@ namespace ns
             UpdateActiveBuildingTypeButton();
         }
 
+        /// <summary>
+        /// 点击按钮后更新Selected的活动
+        /// </summary>
         void UpdateActiveBuildingTypeButton()
         {
             arrowBtn.Find("Selected").gameObject.SetActive(false);

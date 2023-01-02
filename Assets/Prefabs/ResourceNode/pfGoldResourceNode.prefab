@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6536829905435417049}
   - component: {fileID: 3227349645219308080}
   - component: {fileID: 7557528195787970195}
+  - component: {fileID: 2734434575761560860}
   m_Layer: 0
   m_Name: pfGoldResourceNode
   m_TagString: Untagged
@@ -73,6 +74,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceType: {fileID: 11400000, guid: cd27355f75a613a48ab3993ad762d294, type: 2}
+--- !u!114 &2734434575761560860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536829905435417048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7cbafd3de87934fb3f801c8eda566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnce: 1
 --- !u!1 &8965759135245253920
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3174755848480253274}
   - component: {fileID: 4577794854484757063}
-  - component: {fileID: 2782434817230340382}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -158,16 +171,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2782434817230340382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8965759135245253920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7cbafd3de87934fb3f801c8eda566f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runOnce: 1

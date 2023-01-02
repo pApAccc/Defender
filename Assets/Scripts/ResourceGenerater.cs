@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,6 +15,25 @@ namespace ns
         float timer;
         //过多久增加一次资源
         float timerMax;
+
+        public static int GetNearbyResourceamount(ResourceGenerateData resourceGenerateData, Vector3 position)
+        {
+            Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(position, resourceGenerateData.resourceDetectionRadius);
+
+            int nearbyResourceAmount = 0;
+            foreach (Collider2D collider2d in collider2DArray)
+            {
+                ResourceNode resourceNode = collider2d.GetComponent<ResourceNode>();
+                if (resourceNode != null)
+                    if (resourceNode.resourceType == resourceGenerateData.resourceType)
+                    {
+                        nearbyResourceAmount++;
+                    }
+            }
+
+            nearbyResourceAmount = Mathf.Clamp(nearbyResourceAmount, 0, resourceGenerateData.maxResourceAmount);
+            return nearbyResourceAmount;
+        }
         private void Awake()
         {
             resourceGenerateData = GetComponent<BuildingTypeHolder>().buildingType.resourceGenerateData;
@@ -23,21 +43,8 @@ namespace ns
 
         private void Start()
         {
-            Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(transform.position, resourceGenerateData.resourceDetectionRadius);
 
-            float nearbyResourceAmount = 0;
-            foreach (Collider2D collider2d in collider2DArray)
-            {
-                ResourceNode resourceNode = collider2d.GetComponent<ResourceNode>();
-                if (collider2d != null)
-                    if (resourceNode.resourceType == resourceGenerateData.resourceType)
-                    {
-                        nearbyResourceAmount++;
-                    }
-            }
-
-            nearbyResourceAmount = Mathf.Clamp(nearbyResourceAmount, 0, resourceGenerateData.maxResourceAmount);
-
+            int nearbyResourceAmount = GetNearbyResourceamount(resourceGenerateData, transform.position);
             if (nearbyResourceAmount == 0)
             {
                 enabled = false;
@@ -45,8 +52,8 @@ namespace ns
             else
             {
                 timerMax = resourceGenerateData.timerMax / 2 +
-                    resourceGenerateData.timerMax / 2 *
-                    (1 - (nearbyResourceAmount) / resourceGenerateData.maxResourceAmount);
+                    resourceGenerateData.timerMax *
+                    (1 - nearbyResourceAmount / resourceGenerateData.maxResourceAmount);
             }
             print("nearyByResourceAmount" + nearbyResourceAmount);
         }
@@ -60,6 +67,21 @@ namespace ns
                 //添加资源
                 ResourceManager.Instance.AddResource(resourceGenerateData.resourceType, 1);
             }
+        }
+
+        public ResourceGenerateData GetResourceGeneratorData()
+        {
+            return resourceGenerateData;
+        }
+
+        public float GetTimerNormalized()
+        {
+            return timer / timerMax;
+        }
+
+        public float GetAmountGeneratedPerSecond()
+        {
+            return 1 / timerMax;
         }
     }
 }

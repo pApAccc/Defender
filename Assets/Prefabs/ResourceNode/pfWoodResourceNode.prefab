@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8214092961639956690}
   - component: {fileID: 8491397586849272700}
-  - component: {fileID: 8122532010049410747}
   m_Layer: 0
   m_Name: pfTreeVisual
   m_TagString: Untagged
@@ -133,19 +132,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8122532010049410747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082807630291833829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7cbafd3de87934fb3f801c8eda566f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runOnce: 1
 --- !u!1 &4624149478384278845
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,8 +309,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5307198755042546022}
-  - component: {fileID: 1521566080563456330}
   - component: {fileID: 1419507293603042880}
+  - component: {fileID: 1521566080563456330}
+  - component: {fileID: 5677867617160117014}
   m_Layer: 0
   m_Name: pfWoodResourceNode
   m_TagString: Untagged
@@ -348,19 +335,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1521566080563456330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5307198755042546023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa0edbece73fbf469c488e0bff71f4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceType: {fileID: 11400000, guid: 532fbf90bd5c1cf46a111ba14f400b69, type: 2}
 --- !u!58 &1419507293603042880
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -377,6 +351,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.09422505}
   serializedVersion: 2
   m_Radius: 0.40577495
+--- !u!114 &1521566080563456330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307198755042546023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa0edbece73fbf469c488e0bff71f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: {fileID: 11400000, guid: 532fbf90bd5c1cf46a111ba14f400b69, type: 2}
+--- !u!114 &5677867617160117014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307198755042546023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7cbafd3de87934fb3f801c8eda566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnce: 1
 --- !u!1 &6701239770513907534
 GameObject:
   m_ObjectHideFlags: 0

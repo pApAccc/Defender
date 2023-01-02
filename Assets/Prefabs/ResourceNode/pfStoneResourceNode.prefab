@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6046815234953835028}
   - component: {fileID: 4558573575570259565}
   - component: {fileID: 8158901378408195574}
+  - component: {fileID: 5112668214222164028}
   m_Layer: 0
   m_Name: pfStoneResourceNode
   m_TagString: Untagged
@@ -73,6 +74,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceType: {fileID: 11400000, guid: f559a14818a0dd9429b34da3e549f2a7, type: 2}
+--- !u!114 &5112668214222164028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046815234953835031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7cbafd3de87934fb3f801c8eda566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnce: 1
 --- !u!1 &6046815235747657776
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6046815235747657777}
   - component: {fileID: 6046815235747657783}
-  - component: {fileID: 5401886730947791844}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -158,16 +171,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5401886730947791844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6046815235747657776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7cbafd3de87934fb3f801c8eda566f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runOnce: 1

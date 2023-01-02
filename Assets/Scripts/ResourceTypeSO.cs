@@ -12,5 +12,6 @@ namespace ns
     {
         public string nameString;
         public Sprite sprite;
+
     }
 }

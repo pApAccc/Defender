@@ -14,5 +14,6 @@ namespace ns
         public Transform Prefab;
         public ResourceGenerateData resourceGenerateData;
         public Sprite sprite;
+        public float minConsrructionRadius;
     }
 }
