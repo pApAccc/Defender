@@ -12,8 +12,22 @@ namespace ns
     {
         public string nameString;
         public Transform Prefab;
-        public ResourceGenerateData resourceGenerateData;
         public Sprite sprite;
         public float minConsrructionRadius;
+        public ResourceGenerateData resourceGenerateData;
+        public ResourceAmount[] constructionResourceCostArray;
+        public int health;
+        public string GetConstuctionResourceCostString()
+        {
+            string str = "";
+
+            foreach (ResourceAmount resourceAmount in constructionResourceCostArray)
+            {
+                str += "<color=#" + resourceAmount.resourceTypeSO.colorHex + ">" +
+                    resourceAmount.resourceTypeSO.nameShort + ":" + resourceAmount.amount + "</color> ";
+            }
+
+            return str;
+        }
     }
 }

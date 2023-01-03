@@ -39,8 +39,25 @@ namespace ns
         {
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
-                if (activeBuildingType != null && CanSpawnBuilding(activeBuildingType, UtilsClass.GetMousePosition()))
-                    Instantiate(activeBuildingType.Prefab, UtilsClass.GetMousePosition(), Quaternion.identity);
+                if (activeBuildingType != null)
+                    if (CanSpawnBuilding(activeBuildingType, UtilsClass.GetMousePosition(), out string errorMessage))
+                    {
+                        if (ResourceManager.Instance.CanAfford(activeBuildingType.constructionResourceCostArray))
+                        {
+                            ResourceManager.Instance.SpendResource(activeBuildingType.constructionResourceCostArray);
+                            Instantiate(activeBuildingType.Prefab, UtilsClass.GetMousePosition(), Quaternion.identity);
+                        }
+                        else
+                        {
+                            TooltipUI.Instance.Show("无法负担消耗" + activeBuildingType.GetConstuctionResourceCostString(),
+                                                    new TooltipUI.TooltipTimer { timer = 2f });
+                        }
+                    }
+                    else
+                    {
+                        TooltipUI.Instance.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f }); ;
+                    }
+
             }
         }
 
@@ -61,13 +78,17 @@ namespace ns
         /// <param name="buildingType">要创建的建筑类型</param>
         /// <param name="position">要创建的位置</param>
         /// <returns></returns>
-        bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position)
+        bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position, out string errorMessage)
         {
             BoxCollider2D boxCollider2D = buildingType.Prefab.GetComponent<BoxCollider2D>();
             Collider2D[] collider2DArray = Physics2D.OverlapBoxAll(position + (Vector3)boxCollider2D.offset, boxCollider2D.size, 0);
 
             bool isClear = collider2DArray.Length == 0;
-            if (!isClear) return false;
+            if (!isClear)
+            {
+                errorMessage = "区域内存在其他物体";
+                return false;
+            }
 
             //要创建的范围是没有物体的 
             collider2DArray = Physics2D.OverlapCircleAll(UtilsClass.GetMousePosition(), buildingType.minConsrructionRadius);
@@ -81,6 +102,7 @@ namespace ns
                     //如果和要创建的建筑是同类的
                     if (buildingTypeHolder.buildingType == buildingType)
                     {
+                        errorMessage = "与同类物体过于接近";
                         return false;
                     }
                 }
@@ -96,10 +118,12 @@ namespace ns
                 if (buildingTypeHolder != null)
                 {
                     //如果有建筑
+                    errorMessage = "";
                     return true;
                 }
             }
 
+            errorMessage = "离其他建筑过远";
             return false;
         }
     }

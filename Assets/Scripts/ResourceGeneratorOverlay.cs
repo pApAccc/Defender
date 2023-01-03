@@ -17,8 +17,10 @@ namespace ns
             ResourceGenerateData resourceGenerateData = resourceGenerator.GetResourceGeneratorData();
             barTransform = transform.Find("Bar");
 
+            barTransform.localScale = new Vector3(1, 1, 1);
             transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = resourceGenerateData.resourceType.sprite;
-            transform.Find("Text").GetComponent<TextMeshPro>().SetText(resourceGenerator.GetAmountGeneratedPerSecond().ToString("F1"));
+            transform.Find("Text").GetComponent<TextMeshPro>().SetText(
+               resourceGenerator.enabled ? resourceGenerator.GetAmountGeneratedPerSecond().ToString("F1") : "0");
         }
         private void Update()
         {

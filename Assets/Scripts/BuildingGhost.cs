@@ -35,7 +35,6 @@ namespace ns
                 Show(e.activeBuildingType.sprite);
                 resourceNearbyOverlay.Show(e.activeBuildingType.resourceGenerateData);
             }
-
         }
 
         private void Update()

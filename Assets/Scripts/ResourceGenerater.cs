@@ -38,11 +38,6 @@ namespace ns
         {
             resourceGenerateData = GetComponent<BuildingTypeHolder>().buildingType.resourceGenerateData;
             timerMax = resourceGenerateData.timerMax;
-            timer = timerMax;
-        }
-
-        private void Start()
-        {
 
             int nearbyResourceAmount = GetNearbyResourceamount(resourceGenerateData, transform.position);
             if (nearbyResourceAmount == 0)
@@ -55,7 +50,12 @@ namespace ns
                     resourceGenerateData.timerMax *
                     (1 - nearbyResourceAmount / resourceGenerateData.maxResourceAmount);
             }
-            print("nearyByResourceAmount" + nearbyResourceAmount);
+            timer = timerMax;
+        }
+
+        private void Start()
+        {
+
         }
 
         private void Update()

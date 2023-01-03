@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,16 @@ namespace ns
                 BuilderManager.Instance.SetActiveBuildingtype(null);
             });
 
+            MouseEnterExitEvent mouseEnterExitEvent = arrowBtn.GetComponent<MouseEnterExitEvent>();
+            mouseEnterExitEvent.OnMouseEnter += (object sender, EventArgs e) =>
+            {
+                TooltipUI.Instance.Show("Arrow");
+            };
+            mouseEnterExitEvent.OnMouseExit += (object sender, EventArgs e) =>
+            {
+                TooltipUI.Instance.Hide();
+            };
+
             index++;
 
             //根据BuildingTypeListSO创建建筑按钮
@@ -52,10 +63,22 @@ namespace ns
                 offset = +180;
                 btnTransform.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset * index, 0);
 
+                //注册按钮事件
                 btnTransform.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     BuilderManager.Instance.SetActiveBuildingtype(buildingType);
                 });
+
+                //注册鼠标移入，移出事件
+                mouseEnterExitEvent = btnTransform.GetComponent<MouseEnterExitEvent>();
+                mouseEnterExitEvent.OnMouseEnter += (object sender, EventArgs e) =>
+                {
+                    TooltipUI.Instance.Show(buildingType.nameString + "\n" + buildingType.GetConstuctionResourceCostString());
+                };
+                mouseEnterExitEvent.OnMouseExit += (object sender, EventArgs e) =>
+                {
+                    TooltipUI.Instance.Hide();
+                };
 
                 btnTransformDict[buildingType] = btnTransform;
                 index++;

@@ -48,5 +48,35 @@ namespace ns
         {
             return resourceAmountDict[resourceType];
         }
+
+        /// <summary>
+        /// 能负担资源开销吗
+        /// </summary>
+        /// <param name="resourceAmountArray"></param>
+        /// <returns></returns>
+        public bool CanAfford(ResourceAmount[] resourceAmountArray)
+        {
+            foreach (ResourceAmount resourceAmount in resourceAmountArray)
+            {
+                if (GetReourceAmount(resourceAmount.resourceTypeSO) >= resourceAmount.amount)
+                {
+                    //能买的起
+                }
+                else
+                {
+                    //买不起
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void SpendResource(ResourceAmount[] resourceAmountArray)
+        {
+            foreach (ResourceAmount resourceAmount in resourceAmountArray)
+            {
+                resourceAmountDict[resourceAmount.resourceTypeSO] -= resourceAmount.amount;
+            }
+        }
     }
 }
