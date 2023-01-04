@@ -33,7 +33,12 @@ namespace ns
             else
             {
                 Show(e.activeBuildingType.sprite);
-                resourceNearbyOverlay.Show(e.activeBuildingType.resourceGenerateData);
+                if (e.activeBuildingType.hasResourceGenerateData)
+                    resourceNearbyOverlay.Show(e.activeBuildingType.resourceGenerateData);
+                else
+                {
+                    resourceNearbyOverlay.Hide();
+                }
             }
         }
 

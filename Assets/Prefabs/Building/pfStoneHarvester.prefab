@@ -136,9 +136,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5344366245001512352}
     m_Modifications:
+    - target: {fileID: 1270287980988053169, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137454385467768056, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892554008395358508, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166171909411414931, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5191442329625139610, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
       propertyPath: m_Name
       value: pfStoneHarvesterVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191442329625139610, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5191442329625139611, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
       propertyPath: m_RootOrder
@@ -184,6 +204,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6690787927086421715, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346741521225020205, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483812125931111611, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8b424b62a151c4f9620c86dacc2b1f, type: 3}
 --- !u!1 &5541809846437476256 stripped
@@ -218,9 +250,33 @@ PrefabInstance:
       propertyPath: resourceGenerator
       value: 
       objectReference: {fileID: -8907674946039794605}
+    - target: {fileID: 223671649857986636, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297382844766700869, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158488726883894326, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1454558383970342388, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
       propertyPath: m_Name
       value: ResourceGeneratorOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454558383970342388, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155765862221938162, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159622060817656381, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8464503847041441489, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
       propertyPath: m_RootOrder
@@ -328,10 +384,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3469950635176331417, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522624218324618109, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079018361388192091, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5975330393452845037, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: -7245661185209754521}
+    - target: {fileID: 7521783881575148127, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417754546743215722, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
 --- !u!4 &8718414267755599888 stripped

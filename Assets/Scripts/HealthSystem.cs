@@ -21,10 +21,7 @@ namespace ns
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                Damage(10);
-            }
+
         }
         public void Damage(int amount)
         {

@@ -11,7 +11,7 @@ namespace ns
     [Serializable]
     public class ResourceAmount
     {
-        public ResourceTypeSO resourceTypeSO;
+        public ResourceTypeSO resourceType;
         public int amount;
     }
 }

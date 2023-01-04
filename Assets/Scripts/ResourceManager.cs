@@ -15,7 +15,7 @@ namespace ns
         public event EventHandler OnResourceAmountChanged;
 
         Dictionary<ResourceTypeSO, int> resourceAmountDict;
-
+        [SerializeField] List<ResourceAmount> resourceAmountList;
         private void Awake()
         {
             Instance = this;
@@ -26,6 +26,11 @@ namespace ns
             foreach (ResourceTypeSO res in resourceTypeListSO.list)
             {
                 resourceAmountDict[res] = 0;
+            }
+
+            foreach (ResourceAmount resourceAmount in resourceAmountList)
+            {
+                AddResource(resourceAmount.resourceType, resourceAmount.amount);
             }
 
         }
@@ -58,7 +63,7 @@ namespace ns
         {
             foreach (ResourceAmount resourceAmount in resourceAmountArray)
             {
-                if (GetReourceAmount(resourceAmount.resourceTypeSO) >= resourceAmount.amount)
+                if (GetReourceAmount(resourceAmount.resourceType) >= resourceAmount.amount)
                 {
                     //能买的起
                 }
@@ -75,7 +80,7 @@ namespace ns
         {
             foreach (ResourceAmount resourceAmount in resourceAmountArray)
             {
-                resourceAmountDict[resourceAmount.resourceTypeSO] -= resourceAmount.amount;
+                resourceAmountDict[resourceAmount.resourceType] -= resourceAmount.amount;
             }
         }
     }

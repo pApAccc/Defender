@@ -20,5 +20,17 @@ namespace ns
             return mouseworldPos;
 
         }
+
+        public static Vector3 GetRandomDir()
+        {
+            return new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        }
+
+        public static float GetAnglefromVector(Vector3 pos)
+        {
+            float angle = Mathf.Atan2(pos.y, pos.x);
+            float degree = angle * Mathf.Rad2Deg;
+            return degree;
+        }
     }
 }

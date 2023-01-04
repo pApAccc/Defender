@@ -42,7 +42,6 @@ namespace ns
             else
             {
                 gameObject.SetActive(true);
-
             }
         }
     }

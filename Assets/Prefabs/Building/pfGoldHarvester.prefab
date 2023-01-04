@@ -184,10 +184,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3469950635176331417, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522624218324618109, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079018361388192091, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5975330393452845037, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: 2033673917195638862}
+    - target: {fileID: 7521783881575148127, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417754546743215722, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b151a565aa3c1494f8321ae91ffe22a6, type: 3}
 --- !u!4 &3535047697278543461 stripped
@@ -202,9 +222,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5344366245001512352}
     m_Modifications:
+    - target: {fileID: 1359099759994559332, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898527630791270806, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2156701223262941850, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
       propertyPath: m_Name
       value: pfGoldHarvesterVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156701223262941850, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2156701223262941851, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
       propertyPath: m_RootOrder
@@ -250,6 +282,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4530789051544615550, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651083683912841605, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516176909751793203, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
 --- !u!4 &4311287149189263512 stripped
@@ -284,9 +328,33 @@ PrefabInstance:
       propertyPath: resourceGenerator
       value: 
       objectReference: {fileID: 9012841472027312912}
+    - target: {fileID: 223671649857986636, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297382844766700869, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158488726883894326, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1454558383970342388, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
       propertyPath: m_Name
       value: ResourceGeneratorOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454558383970342388, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155765862221938162, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159622060817656381, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8464503847041441489, guid: 2122ce2b38f315b4fb3b1023acac85f5, type: 3}
       propertyPath: m_RootOrder

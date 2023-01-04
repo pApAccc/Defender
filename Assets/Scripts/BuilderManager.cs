@@ -16,6 +16,7 @@ namespace ns
         BuildingTypeSO activeBuildingType;
         List<BuildingTypeSO> buildingTypeList;
 
+        [SerializeField] Building hqBuilding;
         /// <summary>
         /// 当活动建筑类型改变时
         /// </summary>
@@ -58,6 +59,12 @@ namespace ns
                         TooltipUI.Instance.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f }); ;
                     }
 
+            }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                Vector3 EnemySpawn = UtilsClass.GetMousePosition() + UtilsClass.GetRandomDir() * 5;
+                Enemy.CreateEnemy(EnemySpawn);
             }
         }
 
@@ -125,6 +132,14 @@ namespace ns
 
             errorMessage = "离其他建筑过远";
             return false;
+        }
+
+        public Building GethqBuilding()
+        {
+            if (hqBuilding != null)
+                return hqBuilding;
+            else
+                return null;
         }
     }
 }

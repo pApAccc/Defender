@@ -14,6 +14,7 @@ namespace ns
         public Transform Prefab;
         public Sprite sprite;
         public float minConsrructionRadius;
+        public bool hasResourceGenerateData;
         public ResourceGenerateData resourceGenerateData;
         public ResourceAmount[] constructionResourceCostArray;
         public int health;
@@ -23,8 +24,8 @@ namespace ns
 
             foreach (ResourceAmount resourceAmount in constructionResourceCostArray)
             {
-                str += "<color=#" + resourceAmount.resourceTypeSO.colorHex + ">" +
-                    resourceAmount.resourceTypeSO.nameShort + ":" + resourceAmount.amount + "</color> ";
+                str += "<color=#" + resourceAmount.resourceType.colorHex + ">" +
+                    resourceAmount.resourceType.nameShort + ":" + resourceAmount.amount + "</color> ";
             }
 
             return str;
