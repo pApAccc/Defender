@@ -9,9 +9,9 @@ using UnityEngine.EventSystems;
 /// </summary>
 namespace ns
 {
-    public class BuilderManager : MonoBehaviour
+    public class BuildingManager : MonoBehaviour
     {
-        public static BuilderManager Instance { get; private set; }
+        public static BuildingManager Instance { get; private set; }
         Camera mainCamera;
         BuildingTypeSO activeBuildingType;
         List<BuildingTypeSO> buildingTypeList;
@@ -58,13 +58,6 @@ namespace ns
                     {
                         TooltipUI.Instance.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f }); ;
                     }
-
-            }
-
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                Vector3 EnemySpawn = UtilsClass.GetMousePosition() + UtilsClass.GetRandomDir() * 5;
-                Enemy.CreateEnemy(EnemySpawn);
             }
         }
 

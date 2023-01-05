@@ -20,10 +20,10 @@ namespace ns
 
         private void Start()
         {
-            BuilderManager.Instance.OnActiveBuildingTypeChanged += BuilderManager_OnActiveBuildingTypeChanged;
+            BuildingManager.Instance.OnActiveBuildingTypeChanged += BuilderManager_OnActiveBuildingTypeChanged;
         }
 
-        private void BuilderManager_OnActiveBuildingTypeChanged(object sender, BuilderManager.OnActiveBuildingTypeChangedEventArgs e)
+        private void BuilderManager_OnActiveBuildingTypeChanged(object sender, BuildingManager.OnActiveBuildingTypeChangedEventArgs e)
         {
             if (e.activeBuildingType == null)
             {

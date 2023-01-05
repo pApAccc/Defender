@@ -23,7 +23,7 @@ namespace ns
 
         public static Vector3 GetRandomDir()
         {
-            return new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+            return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         }
 
         public static float GetAnglefromVector(Vector3 pos)

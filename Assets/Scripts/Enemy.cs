@@ -31,7 +31,7 @@ namespace ns
         }
         private void Start()
         {
-            targetTF = BuilderManager.Instance.GethqBuilding()?.transform;
+            targetTF = BuildingManager.Instance.GethqBuilding()?.transform;
 
             GetComponent<HealthSystem>().OnDead += (object sender, EventArgs e) =>
             {
@@ -45,14 +45,13 @@ namespace ns
             HandleMove();
 
         }
-
+        [SerializeField] float moveSpeed = 5;
         private void HandleMove()
         {
             //向目标移动
             if (targetTF != null)
             {
                 Vector3 movedir = (targetTF.position - transform.position).normalized;
-                float moveSpeed = 7;
                 rb2d.velocity = movedir * moveSpeed;
             }
             //如果范围内不存在建筑并且hq已销毁
@@ -117,7 +116,7 @@ namespace ns
             //范围内找不到目标，将目标设为hq
             if (targetTF == null)
             {
-                targetTF = BuilderManager.Instance.GethqBuilding()?.transform;
+                targetTF = BuildingManager.Instance.GethqBuilding()?.transform;
             }
 
 

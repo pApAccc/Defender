@@ -36,7 +36,7 @@ namespace ns
 
             arrowBtn.GetComponent<Button>().onClick.AddListener(() =>
             {
-                BuilderManager.Instance.SetActiveBuildingtype(null);
+                BuildingManager.Instance.SetActiveBuildingtype(null);
             });
 
             MouseEnterExitEvent mouseEnterExitEvent = arrowBtn.GetComponent<MouseEnterExitEvent>();
@@ -66,7 +66,7 @@ namespace ns
                 //注册按钮事件
                 btnTransform.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    BuilderManager.Instance.SetActiveBuildingtype(buildingType);
+                    BuildingManager.Instance.SetActiveBuildingtype(buildingType);
                 });
 
                 //注册鼠标移入，移出事件
@@ -87,11 +87,11 @@ namespace ns
 
         private void Start()
         {
-            BuilderManager.Instance.OnActiveBuildingTypeChanged += BuilderManager_OnActiveBuildingTypeChanged;
+            BuildingManager.Instance.OnActiveBuildingTypeChanged += BuilderManager_OnActiveBuildingTypeChanged;
             UpdateActiveBuildingTypeButton();
         }
 
-        private void BuilderManager_OnActiveBuildingTypeChanged(object sender, BuilderManager.OnActiveBuildingTypeChangedEventArgs e)
+        private void BuilderManager_OnActiveBuildingTypeChanged(object sender, BuildingManager.OnActiveBuildingTypeChangedEventArgs e)
         {
             UpdateActiveBuildingTypeButton();
         }
@@ -108,7 +108,7 @@ namespace ns
                 btnTransform.Find("Selected").gameObject.SetActive(false);
             }
 
-            BuildingTypeSO activeBuildingType = BuilderManager.Instance.GetActiveBuildingType();
+            BuildingTypeSO activeBuildingType = BuildingManager.Instance.GetActiveBuildingType();
 
             if (activeBuildingType == null)
             {
