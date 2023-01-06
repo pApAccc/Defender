@@ -18,6 +18,7 @@ namespace ns
         public ResourceGenerateData resourceGenerateData;
         public ResourceAmount[] constructionResourceCostArray;
         public int health;
+        public float constructionTimerMax;
         public string GetConstuctionResourceCostString()
         {
             string str = "";

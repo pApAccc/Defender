@@ -46,7 +46,8 @@ namespace ns
                         if (ResourceManager.Instance.CanAfford(activeBuildingType.constructionResourceCostArray))
                         {
                             ResourceManager.Instance.SpendResource(activeBuildingType.constructionResourceCostArray);
-                            Instantiate(activeBuildingType.Prefab, UtilsClass.GetMousePosition(), Quaternion.identity);
+                            //Instantiate(activeBuildingType.Prefab, UtilsClass.GetMousePosition(), Quaternion.identity);
+                            BuildingConstruction.CreateConstruction(UtilsClass.GetMousePosition(), activeBuildingType);
                         }
                         else
                         {

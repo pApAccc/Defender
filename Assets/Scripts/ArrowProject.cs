@@ -49,7 +49,7 @@ namespace ns
             }
         }
 
-        void SetTarget(Transform targetTF)
+        private void SetTarget(Transform targetTF)
         {
             this.targetTF = targetTF;
         }

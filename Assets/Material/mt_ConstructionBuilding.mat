@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteMession
-  m_Shader: {fileID: -6465566751694194690, guid: 0b0265d57b12a66449a10520d8b0e7de, type: 3}
+  m_Name: mt_ConstructionBuilding
+  m_Shader: {fileID: -6465566751694194690, guid: 27667d7a3b4bab643b2da7e5e27e5dfe, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -34,6 +34,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ProgressTexture:
+        m_Texture: {fileID: 2800000, guid: 8c326d5db0fefbc44b03899c5a43d924, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -51,10 +55,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
+    - _OutlineThickness: 0.005
+    - _Progress: 0
+    - _Segments: 10
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.8584906, g: 0.030498918, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _MainTex: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlineColor: {r: 5.3403134, g: 5.3403134, b: 5.3403134, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
