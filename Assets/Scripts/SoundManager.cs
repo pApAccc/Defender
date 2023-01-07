@@ -24,6 +24,7 @@ namespace ns
 
         private Dictionary<Sound, AudioClip> soundAudioClipDict;
         private AudioSource audiosource;
+        private float volume = .5f;
         private void Awake()
         {
             soundAudioClipDict = new Dictionary<Sound, AudioClip>();
@@ -38,7 +39,21 @@ namespace ns
 
         public void PlaySound(Sound sound)
         {
-            audiosource.PlayOneShot(soundAudioClipDict[sound]);
+            audiosource.PlayOneShot(soundAudioClipDict[sound], volume);
+        }
+        public void IncreaseVolume()
+        {
+            volume += .1f;
+            volume = Mathf.Clamp01(volume);
+        }
+        public void DecreaseVolume()
+        {
+            volume -= .1f;
+            volume = Mathf.Clamp01(volume);
+        }
+        public float GetVolume()
+        {
+            return volume;
         }
     }
 }

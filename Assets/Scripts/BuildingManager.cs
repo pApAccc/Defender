@@ -43,6 +43,7 @@ namespace ns
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.GameOver);
             GameOverUI.Instance.Show();
+            Time.timeScale = 0f;
         }
 
         private void Update()

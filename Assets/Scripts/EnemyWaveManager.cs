@@ -79,7 +79,7 @@ namespace ns
         //诞生敌人波次
         void SpawnEnemy()
         {
-            spawnEnemyAmount = 50 + 3 * waveNumber;
+            spawnEnemyAmount = 5 + 3 * waveNumber;
             state = State.SpwaningWave;
             waveNumber++;
             OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);

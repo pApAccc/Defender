@@ -18,6 +18,7 @@ namespace ns
             transform.Find("RetryBtn").GetComponent<Button>().onClick.AddListener(() =>
             {
                 GameSceneManager.Load(GameSceneManager.Scene.GameScene);
+                Time.timeScale = 1.0f;
             });
             transform.Find("MainMenuBtn").GetComponent<Button>().onClick.AddListener(() =>
             {
@@ -33,6 +34,8 @@ namespace ns
 
             transform.Find("SurviveText").GetComponent<TextMeshProUGUI>().
                         SetText("你存活了 " + EnemyWaveManager.Instance.GetWaveNumber() + " 波敌人");
+
+
         }
         private void Hide()
         {

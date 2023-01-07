@@ -11,6 +11,7 @@ namespace ns
     public class CameraHandler : MonoBehaviour
     {
         [SerializeField] CinemachineVirtualCamera virtualCamera;
+
         float orthographicSize;
         float targetOrthographicSize;
         [SerializeField] float minOrthographicSize = 10;
@@ -24,7 +25,6 @@ namespace ns
         {
             HandleMove();
             HandleZoom();
-
         }
 
         void HandleZoom()
@@ -47,5 +47,6 @@ namespace ns
             transform.position += offset * moveSpeed * Time.deltaTime;
 
         }
+
     }
 }
