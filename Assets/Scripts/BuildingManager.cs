@@ -35,7 +35,16 @@ namespace ns
         private void Start()
         {
             mainCamera = Camera.main;
+
+            hqBuilding.GetComponent<HealthSystem>().OnDead += HQ_OnDead;
         }
+
+        private void HQ_OnDead(object sender, EventArgs e)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Sound.GameOver);
+            GameOverUI.Instance.Show();
+        }
+
         private void Update()
         {
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -48,6 +57,7 @@ namespace ns
                             ResourceManager.Instance.SpendResource(activeBuildingType.constructionResourceCostArray);
                             //Instantiate(activeBuildingType.Prefab, UtilsClass.GetMousePosition(), Quaternion.identity);
                             BuildingConstruction.CreateConstruction(UtilsClass.GetMousePosition(), activeBuildingType);
+                            SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
                         }
                         else
                         {

@@ -32,12 +32,20 @@ namespace ns
         private void Start()
         {
             targetTF = BuildingManager.Instance.GethqBuilding()?.transform;
-
-            GetComponent<HealthSystem>().OnDead += (object sender, EventArgs e) =>
+            HealthSystem healthSystem = GetComponent<HealthSystem>();
+            healthSystem.OnDead += (object sender, EventArgs e) =>
             {
+                SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
                 Destroy(gameObject);
             };
+
+            healthSystem.OnDamaged += (object sender, EventArgs e) =>
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+            };
         }
+
+
 
         private void Update()
         {

@@ -34,15 +34,6 @@ namespace ns
             }
 
         }
-
-        void Test()
-        {
-            foreach (ResourceTypeSO res in resourceAmountDict.Keys)
-            {
-                print(res.name + ":" + resourceAmountDict[res]);
-            }
-        }
-
         public void AddResource(ResourceTypeSO resourceTypeSO, int amount)
         {
             resourceAmountDict[resourceTypeSO] += amount;

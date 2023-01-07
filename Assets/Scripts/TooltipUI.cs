@@ -17,6 +17,7 @@ namespace ns
         RectTransform backgroundRectTF;
         RectTransform rectTransform;
         TooltipTimer tooltipTimer;
+
         private void Awake()
         {
             Instance = this;
@@ -59,7 +60,7 @@ namespace ns
             rectTransform.anchoredPosition = anchoredPosition;
         }
 
-        void SetText(string text)
+        private void SetText(string text)
         {
             textMeshProUGUI.text = text;
             textMeshProUGUI.ForceMeshUpdate();

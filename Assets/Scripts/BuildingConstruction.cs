@@ -45,6 +45,7 @@ namespace ns
             {
                 print("Ding");
                 Instantiate(buildingType.Prefab, transform.position, Quaternion.identity);
+                SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
                 Destroy(gameObject);
             }
         }

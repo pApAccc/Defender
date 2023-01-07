@@ -10,6 +10,8 @@ namespace ns
 {
     public class EnemyWaveManager : MonoBehaviour
     {
+        public static EnemyWaveManager Instance { get; private set; }
+
         public event EventHandler OnWaveNumberChanged;
         enum State
         {
@@ -27,7 +29,10 @@ namespace ns
         [SerializeField] List<Transform> EnemySpawnPositonList;
         [SerializeField] Transform enemyComingIcon;
         Vector3 spawnPosition;
-
+        private void Awake()
+        {
+            Instance = this;
+        }
         private void Start()
         {
             state = State.WaitForNextWave;
@@ -74,7 +79,7 @@ namespace ns
         //诞生敌人波次
         void SpawnEnemy()
         {
-            spawnEnemyAmount = 5 + 3 * waveNumber;
+            spawnEnemyAmount = 50 + 3 * waveNumber;
             state = State.SpwaningWave;
             waveNumber++;
             OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);

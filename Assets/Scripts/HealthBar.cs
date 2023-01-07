@@ -18,6 +18,14 @@ namespace ns
         private void Start()
         {
             healthSystem.OnDamaged += HealthSystem_OnDamaged;
+            healthSystem.OnHealed += HealthSystem_OnHealed;
+
+            UpdateHealthBar();
+            UpdateHealthBarVisable();
+        }
+
+        private void HealthSystem_OnHealed(object sender, System.EventArgs e)
+        {
             UpdateHealthBar();
             UpdateHealthBarVisable();
         }

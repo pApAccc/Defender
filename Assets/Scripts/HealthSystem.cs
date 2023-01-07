@@ -12,21 +12,17 @@ namespace ns
     {
         public event EventHandler OnDamaged;
         public event EventHandler OnDead;
-        [SerializeField] int HealthAmountMax;
+        public event EventHandler OnHealed;
+        [SerializeField] int healthAmountMax;
         int healthAmount;
         private void Awake()
         {
-            healthAmount = HealthAmountMax;
-        }
-
-        private void Update()
-        {
-
+            healthAmount = healthAmountMax;
         }
         public void Damage(int amount)
         {
             healthAmount -= amount;
-            healthAmount = Mathf.Clamp(healthAmount, 0, HealthAmountMax);
+            healthAmount = Mathf.Clamp(healthAmount, 0, healthAmountMax);
 
             OnDamaged?.Invoke(this, EventArgs.Empty);
             if (IsDead())
@@ -44,24 +40,42 @@ namespace ns
         {
             return healthAmount;
         }
+        public int GetHealthAmountMax()
+        {
+            return healthAmountMax;
+        }
 
         public float GetHealthAmountNormailzed()
         {
-            return (float)healthAmount / HealthAmountMax;
+            return (float)healthAmount / healthAmountMax;
         }
 
         public bool IsFullHealth()
         {
-            return healthAmount == HealthAmountMax;
+            return healthAmount == healthAmountMax;
         }
         public void SetHealthAmountMax(int healthAmount, bool updateHealthAmount)
         {
-            HealthAmountMax = healthAmount;
+            healthAmountMax = healthAmount;
 
             if (updateHealthAmount)
             {
-                this.healthAmount = HealthAmountMax;
+                this.healthAmount = healthAmountMax;
             }
+        }
+
+        public void Heal(int amount)
+        {
+            healthAmount += amount;
+            healthAmount = Mathf.Clamp(healthAmount, 0, healthAmountMax);
+
+            OnHealed?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void HealFull()
+        {
+            healthAmount = healthAmountMax;
+            OnHealed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
