@@ -35,6 +35,7 @@ namespace ns
             spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
             buildingTypeHolder = GetComponent<BuildingTypeHolder>();
             constructionMaterial = spriteRenderer.material;
+            Instantiate(Resources.Load<Transform>("pfBuildingPlacedParticles"), transform.position, Quaternion.identity);
         }
         private void Update()
         {
@@ -43,9 +44,9 @@ namespace ns
 
             if (constructionTimer < 0)
             {
-                print("Ding");
                 Instantiate(buildingType.Prefab, transform.position, Quaternion.identity);
                 SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
+                Instantiate(Resources.Load<Transform>("pfBuildingPlacedParticles"), transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }

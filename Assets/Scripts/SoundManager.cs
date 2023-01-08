@@ -27,9 +27,10 @@ namespace ns
         private float volume = .5f;
         private void Awake()
         {
-            soundAudioClipDict = new Dictionary<Sound, AudioClip>();
             Instance = this;
+            soundAudioClipDict = new Dictionary<Sound, AudioClip>();
             audiosource = GetComponent<AudioSource>();
+            volume = PlayerPrefs.GetFloat("soundVolume", .5f);
 
             foreach (Sound sound in Enum.GetValues(typeof(Sound)))
             {
@@ -45,11 +46,13 @@ namespace ns
         {
             volume += .1f;
             volume = Mathf.Clamp01(volume);
+            PlayerPrefs.SetFloat("soundVolume", volume);
         }
         public void DecreaseVolume()
         {
             volume -= .1f;
             volume = Mathf.Clamp01(volume);
+            PlayerPrefs.SetFloat("soundVolume", volume);
         }
         public float GetVolume()
         {

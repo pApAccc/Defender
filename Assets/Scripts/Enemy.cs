@@ -14,10 +14,11 @@ namespace ns
         Rigidbody2D rb2d;
         float lookForTargetTimer;
         float lookForTargetTimerMax = .2f;
+        HealthSystem healthSystem;
 
         public static Enemy CreateEnemy(Vector3 position)
         {
-            Transform pfEnemy = Resources.Load<Transform>("pfenemy");
+            Transform pfEnemy = Resources.Load<Transform>("pfEnemy");
             Transform enemyTransform = Instantiate(pfEnemy, position, Quaternion.identity);
 
             Enemy enemy = enemyTransform.GetComponent<Enemy>();
@@ -32,21 +33,23 @@ namespace ns
         private void Start()
         {
             targetTF = BuildingManager.Instance.GethqBuilding()?.transform;
-            HealthSystem healthSystem = GetComponent<HealthSystem>();
+            healthSystem = GetComponent<HealthSystem>();
             healthSystem.OnDead += (object sender, EventArgs e) =>
             {
                 SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+                Instantiate(Resources.Load<Transform>("pfEnemyDieParticles"), transform.position, Quaternion.identity);
+                CinemachineShake.Instance.ShakeCamera(5, .2f);
+                ChromaticAberrationEffect.Instance.SetVolumeWeight(.4f);
                 Destroy(gameObject);
             };
 
             healthSystem.OnDamaged += (object sender, EventArgs e) =>
             {
                 SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+                CinemachineShake.Instance.ShakeCamera(7, .3f);
+                ChromaticAberrationEffect.Instance.SetVolumeWeight(.6f);
             };
         }
-
-
-
         private void Update()
         {
             HandleTrageting();
@@ -90,7 +93,7 @@ namespace ns
                 HealthSystem healthSystem = building.GetComponent<HealthSystem>();
                 healthSystem.Damage(10);
 
-                Destroy(gameObject);
+                this.healthSystem.Damage(9999);
             }
         }
 

@@ -181,7 +181,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -506,6 +506,10 @@ PrefabInstance:
     - target: {fileID: 9051802585613011832, guid: 619b6074cea22f244b89dbdef4f70db6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051802585613011834, guid: 619b6074cea22f244b89dbdef4f70db6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9051802585613011836, guid: 619b6074cea22f244b89dbdef4f70db6, type: 3}
       propertyPath: m_Name

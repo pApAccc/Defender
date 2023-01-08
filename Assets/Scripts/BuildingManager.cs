@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -31,19 +32,16 @@ namespace ns
         {
             Instance = this;
             buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name).list;
-        }
-        private void Start()
-        {
             mainCamera = Camera.main;
-
             hqBuilding.GetComponent<HealthSystem>().OnDead += HQ_OnDead;
+
         }
 
         private void HQ_OnDead(object sender, EventArgs e)
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.GameOver);
             GameOverUI.Instance.Show();
-            Time.timeScale = 0f;
+
         }
 
         private void Update()
@@ -119,6 +117,18 @@ namespace ns
                     }
                 }
             }
+
+            if (buildingType.hasResourceGenerateData)
+            {
+                ResourceGenerateData resourceGenerateData = buildingType.resourceGenerateData;
+                int nearbyResourceAmount = ResourceGenerater.GetNearbyResourceamount(resourceGenerateData, position);
+                if (nearbyResourceAmount == 0)
+                {
+                    errorMessage = "周围没有资源点";
+                    return false;
+                }
+            }
+
 
             //避免两个建筑的距离太过离谱
             float maxConsrructionRadius = 25;

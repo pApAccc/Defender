@@ -20,7 +20,7 @@ namespace ns
         }
         State state;
 
-        float nextWaveTimer;
+        float nextWaveTimer = 20;
         float nextEnemySpawnTimer;
 
         int spawnEnemyAmount;
@@ -38,7 +38,6 @@ namespace ns
             state = State.WaitForNextWave;
             spawnPosition = EnemySpawnPositonList[Random.Range(0, EnemySpawnPositonList.Count)].position;
             enemyComingIcon.position = spawnPosition;
-            SpawnEnemy();
         }
         private void Update()
         {
@@ -69,7 +68,7 @@ namespace ns
                                 state = State.WaitForNextWave;
                                 spawnPosition = EnemySpawnPositonList[Random.Range(0, EnemySpawnPositonList.Count)].position;
                                 enemyComingIcon.position = spawnPosition;
-                                nextWaveTimer = 10f;
+                                nextWaveTimer = 20f;
                             }
                         }
                     }

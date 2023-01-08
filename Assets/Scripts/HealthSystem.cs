@@ -10,6 +10,7 @@ namespace ns
 {
     public class HealthSystem : MonoBehaviour
     {
+        public event EventHandler OnHealthMaxChanged;
         public event EventHandler OnDamaged;
         public event EventHandler OnDead;
         public event EventHandler OnHealed;
@@ -62,6 +63,7 @@ namespace ns
             {
                 this.healthAmount = healthAmountMax;
             }
+            OnHealthMaxChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void Heal(int amount)

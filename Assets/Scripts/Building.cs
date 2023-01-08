@@ -47,12 +47,17 @@ namespace ns
         private void Building_OnDamaged(object sender, System.EventArgs e)
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
+            CinemachineShake.Instance.ShakeCamera(6, .3f);
+            ChromaticAberrationEffect.Instance.SetVolumeWeight(.7f);
             ShowRepairBtn();
         }
 
         private void HealthSystem_OnDied(object sender, System.EventArgs e)
         {
+            Instantiate(Resources.Load<Transform>("pfBuildingDestroyedParticles"), transform.position, Quaternion.identity);
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDestroyed);
+            CinemachineShake.Instance.ShakeCamera(8, .4f);
+            ChromaticAberrationEffect.Instance.SetVolumeWeight(1.0f);
             Destroy(gameObject);
         }
 

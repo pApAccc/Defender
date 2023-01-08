@@ -17,7 +17,7 @@ namespace ns
         }
         private void Update()
         {
-            int nearbyResourceAmount = ResourceGenerater.GetNearbyResourceamount(resourceGenerateData, transform.position);
+            int nearbyResourceAmount = ResourceGenerater.GetNearbyResourceamount(resourceGenerateData, transform.position - transform.localPosition);
             float percent = Mathf.RoundToInt((float)nearbyResourceAmount / resourceGenerateData.maxResourceAmount * 100);
 
             transform.Find("Text").GetComponent<TextMeshPro>().text = percent + "%";
